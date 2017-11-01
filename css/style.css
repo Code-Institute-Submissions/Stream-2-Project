@@ -1,0 +1,17 @@
+
+h1{
+    text-decoration:none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+body{
+ background-color: ##e6e6e6;   
+}
+
+
+#chart1 .x.axis text,
+#chart2 .x.axis text{
+   text-anchor: end !important;
+   transform: rotate(-45deg);
+}
