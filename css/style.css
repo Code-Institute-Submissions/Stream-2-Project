@@ -1,4 +1,9 @@
 
+
+p {
+    margin-bottom: 10px;
+    text-shadow:important;
+}
 h1{
     text-decoration:none;
     text-decoration-line: none;
@@ -6,12 +11,19 @@ h1{
     text-decoration-color: initial;
 }
 body{
- background-color: ##e6e6e6;   
+ background-color: #C0C0C0;   
 }
 
+.jumbotron{
+    background-color: #FFA623;
+}
 
 #chart1 .x.axis text,
-#chart2 .x.axis text{
+#chart2 .x.axis text,
+#chart3 .x.axis text,
+#chart4 .x.axis text,
+#chart5 .x.axis text,
+#chart6 .x.axis text{
    text-anchor: end !important;
    transform: rotate(-45deg);
 }
