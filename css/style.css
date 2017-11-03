@@ -18,12 +18,18 @@ body{
     background-color: #FFA623;
 }
 
+chart  {
+    text-align: center;
+}
 #chart1 .x.axis text,
 #chart2 .x.axis text,
 #chart3 .x.axis text,
 #chart4 .x.axis text,
 #chart5 .x.axis text,
 #chart6 .x.axis text{
-   text-anchor: end !important;
+ text-anchor: end !important;
    transform: rotate(-45deg);
 }
+
+  
+   
