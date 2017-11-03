@@ -7,7 +7,9 @@
         
         var ndx = crossfilter(menuData);
         
-        
+        var catColors = d3.scale.ordinal()
+            .domain(["Breakfast", "Beef & Pork", "Chicken & Fish", "Salads", "Snacks & Sides", "Desserts", "Beverages", "Coffee & Tea", "Smoothies & Shakes"])
+            .range(["blue", "red", "purple", "yellow", "green", "black", "pink", "orange", "gray"])
         
         var CategoryDim = ndx.dimension(dc.pluck("Category"));
         var CategorySelect = CategoryDim.group();
@@ -31,6 +33,7 @@
             .cap(10)
             .othersGrouper(false)
             .xAxis().ticks(4)
+            // .colors(catColors);
             
 
 
@@ -92,11 +95,12 @@
             .xUnits(dc.units.ordinal)
             .xAxisLabel("Category")
             .yAxisLabel("Avg.TotalFat")
-            .yAxis().ticks(4);
+            .yAxis().ticks(4)
+            // .colors(catColors);
             
             
         var veggie_dim = ndx.dimension(dc.pluck('veg'));
-        console.log(veggie_dim)
+        
         var veggie_total = veggie_dim.group()
         
         dc.pieChart('#chart2')
@@ -116,49 +120,59 @@
  
         
         var servingSizeDim = ndx.dimension(function(d){
-            return [d.ServingSizePerGram, d.Calories];
+            return [d.Calories, d.ServingSizePerGram, d.Item, d.Category];
         });
         
+        var ssGroup = servingSizeDim.group();
         
-        var unkownGroup = servingSizeDim.group();
+        var calScatter = dc.seriesChart("#calory-ss-scatter")
         
+
         
+        var subChart = function(c) {
+            return dc.scatterPlot(c)
+                .symbolSize(8)
+                .highlightedSize(10)
+                
+        }
         
-        var caloriesDim = ndx.dimension(function(d){
-            if(d['Calories'] >=0 && d['Calories'] <=100)
-                return '0-100';
-            else if(d['Calories'] >100 && d['Calories'] <=200)
-                return '100-200';
-            else if(d['Calories'] >200 && d['Calories'] <=300)
-                return '200-300';
-            else if(d['Calories'] >300 && d['Calories'] <=400)
-                return '300-400';
-            else
-                return '400+'
-        });
-        
-        var minCal = caloriesDim.bottom(1)[0].Calories;
-        var maxCal = caloriesDim.top(1)[0].Calories;
-        
-        dc.scatterPlot("#calory-ss-scatter")
+        calScatter
             .width(800)
             .height(400)
-            .x(d3.scale.linear().domain([minCal,maxCal]))
+            .chart(subChart)
+            .x(d3.scale.linear().domain([0, 2000]))
+            .y(d3.scale.linear().domain([0, 1000]))
             .brushOn(false)
-            .symbolSize(8)
+            // .symbolSize(8)
             .clipPadding(10)
             .yAxisLabel("Serving Size")
             .xAxisLabel("Calories")
-            // .title(function (d) {
-            //     return d.value + " " + d.key[3] + " " + d.key[2] + " earned " + d.key[1];
-            // })
+            .seriesAccessor(function(d){
+                return d.key[3];
+            })
+            .keyAccessor(function(d){
+                return d.key[0];
+            })
+            .valueAccessor(function(d){
+                return d.key[1];
+            })
             .colorAccessor(function (d) {
                 return d.key[3];
             })
             
+            .title(function (d) {
+                return d.key[1] + "g serving of " + d.key[2] + " has " + d.key[0] + "cal" ;
+            })
+
+            .legend(dc.legend().x(700).y(10).itemHeight(10).gap(10))
+
+            .colors(catColors)
             .dimension(servingSizeDim)
-            .group(unkownGroup)
-            .margins({top: 10, right: 50, bottom: 75, left: 75});
+            .group(ssGroup)
+            .margins({top: 10, right: 100, bottom: 75, left: 75})
+            .yAxis().ticks(10);
+            
+            
         
         
         
