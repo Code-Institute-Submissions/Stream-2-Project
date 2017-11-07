@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 	    
-	    <!--<link rel="stylesheet" href="static/css/introjs.css"/>-->
+	    <link rel="stylesheet" href="static/css/introjs.css"/>
 	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
 	    <link rel="stylesheet" href="static/css/style.css" type="text/css" /> 
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
@@ -41,44 +41,48 @@
 		 	
 		  <div class="row">
 		      	<div class="col-md-6 chart">
-		      			<p id="calories-row"></p>
-		      			<br>
-		      			<a href="#" class="btn btn-warning" role="button">Food/Drinks on the menu with the most calories</a>
-		      		</div>
-		      	<div class="col-md-6 chart">
-		      			<p id="chart1"></p>
-		      			<br>
-		      			<a href="#" class="btn btn-warning" role="button">Average Total Fat per Category</a>
-		      	</div>
 		      		
+      			<div id="calories-row" data-step="1" data-intro="McDonald's menu with the most calories" style="font-weight: normal" data-position="center"></div>
+      			<br>
+      			<a href="#" class="btn btn-warning" role="button">Food/Drinks on the menu with the most calories</a>
+      		</div>
+		      	
+      		<div class="col-md-6 chart">
+      			<div id="chart1" data-step="2" data-intro="Average Total Fat per Category" style="font-weight: normal" data-position="right"></div>
+      			<br>
+      			<a href="#" class="btn btn-warning" role="button">Average Total Fat per Category</a>
+      	 </div>			   	
+						 	
 		  </div>
-
+          <br>
+		 <hr>
 						   
-		                   <br>
-						   <br>
-						   <hr>
-						   
-				
-					      		<div class="col-md-3 chart">
-					      			<p id="chart2"></p>
-					      			<br>
-					      			<a href="#" class="btn btn-warning" role="button">Veggie or Non-veggie</a>
-					      		</div>
+		                   
+		 
+		 
+			<div class="row">	
+		      		<div class="col-md-3 chart">
+		      			<div id="chart2" data-step="3" data-intro="Number of McDonald's menu that is Veggie or Non-veggie" style="font-weight: normal" data-position="right"></div>
+		      			<br>
+		      			<a href="#" class="btn btn-warning" role="button">Veggie or Non-veggie</a>
+		      		</div>
+		           <div class="col-md-9 chart">
+		      			<div id="calory-ss-scatter"data-step="4" data-intro="Amount of calories per serving size in each menu" style="font-weight: normal" data-position="right"></div>
+		      			<br>
+		      			<a href="#" class="btn btn-warning" role="button">Amount of calories in each menu</a>
+		      		</div>		
+ 
+		
+		  </div>			      		 		
 					      		
-					      		<div class="col-md-9 chart">
-					      			<p id="calory-ss-scatter"></p>
-					      			<br>
-					      			<a href="#" class="btn btn-warning" role="button">Amount of calories in each menu</a>
-					      		</div> 		
-					      		
-					      		
+	      		      		
 				
 
 					  
 					      	    	
 					      	
 		      	
-		 </div>
+ </div>
 		      
 		      
 		      
@@ -90,6 +94,6 @@
 
  <script src='http://code.jquery.com/jquery.min.js'></script>
  <script src='bootstrap/js/bootstrap.min.js'></script>   
- <script src="js/intro.js" type="text/javascript"></script>
+ <script src="static/js/intro.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-web: gunicorn stream_2_project:app
+web: gunicorn dashboard:app

@@ -26,7 +26,7 @@
 
         var caloriesRowChart = dc.rowChart("#calories-row");
         caloriesRowChart
-            .width(600)
+            .width(400)
             .height(330)
             .dimension(itemDim)
             .group(caloriesGroup)
@@ -70,12 +70,16 @@
           }
            
             
+        var CategoryDim2 = ndx.dimension(dc.pluck("Category"));
         
-        var avg_TotalFat = CategoryDim.group().reduce(add_item2, remove_item2, init);
+        var avg_TotalFat = CategoryDim2.group().reduce(add_item2, remove_item2, init);
         // var color = d3.scale.ordinal()
         //       .domain(["Beef & Pork", "Beverages", "Breakfast","Chicken & Fish","Coffee & Tea","Desserts","Salads","Smoothies &Shakes","Snacks & Sides"])
         //       .range(["#fff","#000","#333","#fff","#000","#333","#fff","#000","#333"]);
 
+
+        var xTickformat = d3.format('.0f');
+        
    
         dc.barChart("#chart1")
             .width(600)
@@ -85,10 +89,10 @@
             //   .range(["#fff","#000","#333","#fff","#000","#333","#fff","#000","#333"])
 
             .margins({top:30, right:50, bottom:80, left:50})
-            .dimension(CategoryDim)
+            .dimension(CategoryDim2)
             .group(avg_TotalFat)
             .valueAccessor(function(d){
-                return d.value.average;
+                return parseFloat(d.value.average.toFixed(2));
             })
             .transitionDuration(500)
             .x(d3.scale.ordinal())
@@ -96,6 +100,8 @@
             .xAxisLabel("Category")
             .yAxisLabel("Avg.TotalFat")
             .yAxis().ticks(4)
+            // .xAxis().tickFormat(xTickformat)
+            
             // .colors(catColors);
             
             
@@ -104,8 +110,8 @@
         var veggie_total = veggie_dim.group()
         
         dc.pieChart('#chart2')
-            .height(400)
-            .radius(200)
+            .height(330)
+            .radius(250)
             .transitionDuration(1500)
             .dimension(veggie_dim)
             .group(veggie_total);
@@ -138,7 +144,7 @@
         
         calScatter
             .width(800)
-            .height(400)
+            .height(330)
             .chart(subChart)
             .x(d3.scale.linear().domain([0, 2000]))
             .y(d3.scale.linear().domain([0, 1000]))
