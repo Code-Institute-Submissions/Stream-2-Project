@@ -1,6 +1,6 @@
 
     queue()
-       .defer(d3.csv,"data/menu.csv")
+       .defer(d3.json,"/data")
        .await(makeGraphs);
        
     function makeGraphs(error,menuData) {
