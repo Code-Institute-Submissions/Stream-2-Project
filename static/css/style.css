@@ -21,6 +21,10 @@ body{
 chart  {
     text-align: center;
 }
+
+.chart {
+    text-align: center;
+}
 #chart1 .x.axis text,
 #chart2 .x.axis text,
 #chart3 .x.axis text,
@@ -46,4 +50,68 @@ chart  {
 
 /*}*/
 
-   
+.dc-chart rect.stack0 {
+    fill: green;
+    stroke: none;
+}
+
+.dc-chart rect.stack1 {
+    fill: yellow;
+    stroke: none;
+}
+
+.dc-chart rect.stack2 {
+    fill: red;
+    stroke: none;
+}
+
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(1) {
+    fill: red;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(2) {
+    fill: pink;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(3) {
+    fill: blue;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(4) {
+    fill: purple;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(5) {
+    fill: orange;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(6) {
+    fill: black;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(7) {
+    fill: yellow;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(8) {
+    fill: gray;
+}
+
+#chart1 > svg > g > g.chart-body > g > rect:nth-child(9) {
+    fill: green;
+}
+
+
+#chart2 > svg > g > g.pie-slice-group > g.pie-slice._1 > path {
+    fill: red;
+}
+
+#chart2 > svg > g > g.pie-slice-group > g.pie-slice._0 > path {
+    fill: blue;
+}
+
+/*#calories-row > svg > g rect {*/
+/*    fill: blue;*/
+/*}*/
+

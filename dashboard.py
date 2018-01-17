@@ -10,7 +10,7 @@ MONGODB_URI = os.environ.get('MONGODB_URI')
 DBS_NAME = os.environ.get('MONGO_DB_NAME', 'mcdonald')
 COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME','food')
 
-# Modify the following for your fields
+
 FIELDS = {'Category': True, 'Item': True, 'ServingSizePerGram': True, 'Calories': True,
           'Calories from Fat': True, 'TotalFat': True,'Total Fat (% Daily Value)': True,
           'Saturated Fat':True,'Saturated Fat (% Daily Value)':True,'Trans Fat':True,'Cholesterol':True,
@@ -27,12 +27,8 @@ def index():
 @app.route("/data")
 def get_data():
     with MongoClient(MONGODB_URI) as conn:
-        # Define which collection we wish to access
         collection = conn[DBS_NAME][COLLECTION_NAME]
-        # Retrieve a result set only with the fields defined in FIELDS
-        # and limit the the results to 55000
         results = collection.find(projection=FIELDS)
-        # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(results))
 
 

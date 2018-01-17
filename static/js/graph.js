@@ -19,21 +19,19 @@
             .group(CategorySelect);
         
         
-        
-        
         var itemDim = ndx.dimension(dc.pluck('Item'));
         var caloriesGroup = itemDim.group().reduceSum(dc.pluck('Calories'));
 
         var caloriesRowChart = dc.rowChart("#calories-row");
         caloriesRowChart
-            .width(400)
+            .width(550)
             .height(330)
             .dimension(itemDim)
             .group(caloriesGroup)
             .cap(10)
             .othersGrouper(false)
             .xAxis().ticks(4)
-            // .colors(catColors);
+            
             
 
 
@@ -73,20 +71,14 @@
         var CategoryDim2 = ndx.dimension(dc.pluck("Category"));
         
         var avg_TotalFat = CategoryDim2.group().reduce(add_item2, remove_item2, init);
-        // var color = d3.scale.ordinal()
-        //       .domain(["Beef & Pork", "Beverages", "Breakfast","Chicken & Fish","Coffee & Tea","Desserts","Salads","Smoothies &Shakes","Snacks & Sides"])
-        //       .range(["#fff","#000","#333","#fff","#000","#333","#fff","#000","#333"]);
-
-
+        
         var xTickformat = d3.format('.0f');
         
-   
-        dc.barChart("#chart1")
+        var av_fat_barchart=dc.barChart("#chart1")
+        
+        av_fat_barchart
             .width(600)
             .height(350)
-            // .colorScales = d3.scale.ordinal()
-            //   .domain(["Beef & Pork", "Beverages", "Breakfast","Chicken & Fish","Coffee & Tea","Desserts","Salads","Smoothies &Shakes","Snacks & Sides"])
-            //   .range(["#fff","#000","#333","#fff","#000","#333","#fff","#000","#333"])
 
             .margins({top:30, right:50, bottom:80, left:50})
             .dimension(CategoryDim2)
@@ -100,9 +92,8 @@
             .xAxisLabel("Category")
             .yAxisLabel("Avg.TotalFat")
             .yAxis().ticks(4)
-            // .xAxis().tickFormat(xTickformat)
             
-            // .colors(catColors);
+            
             
             
         var veggie_dim = ndx.dimension(dc.pluck('veg'));
@@ -111,20 +102,12 @@
         
         dc.pieChart('#chart2')
             .height(330)
-            .radius(250)
+            .radius(100)
             .transitionDuration(1500)
             .dimension(veggie_dim)
             .group(veggie_total);
   
   
-  
-    //   var genderColors = d3.scale.ordinal()
-    //     .domain(["Female", "Male"])
-    //     .range(["pink", "blue"]);
-        
-        
- 
-        
         var servingSizeDim = ndx.dimension(function(d){
             return [d.Calories, d.ServingSizePerGram, d.Item, d.Category];
         });
@@ -143,7 +126,7 @@
         }
         
         calScatter
-            .width(800)
+            .width(750)
             .height(330)
             .chart(subChart)
             .x(d3.scale.linear().domain([0, 2000]))
@@ -170,7 +153,7 @@
                 return d.key[1] + "g serving of " + d.key[2] + " has " + d.key[0] + "cal" ;
             })
 
-            .legend(dc.legend().x(700).y(10).itemHeight(10).gap(10))
+            .legend(dc.legend().x(650).y(10).itemHeight(10).gap(10))
 
             .colors(catColors)
             .dimension(servingSizeDim)
