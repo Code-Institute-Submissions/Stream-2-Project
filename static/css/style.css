@@ -1,5 +1,4 @@
 
-
 p {
     margin-bottom: 10px;
     text-shadow:important;
@@ -35,20 +34,7 @@ chart  {
    transform: rotate(-45deg);
 }
 
-/*  .dc-select-menu {*/
-/*   background: #33CC99;*/
-/*   width: 80%;*/
-/*   border: none;*/
-/*   position: relative;*/
-/*   height: 31px;*/
-/*   font-size: 15px;*/
-/*   color: white;*/
-/*   vertical-align: middle;*/
-/*   text-align: center;*/
-/*   padding-top: 4px;*/
-/*   padding-bottom: 0px;*/
 
-/*}*/
 
 .dc-chart rect.stack0 {
     fill: green;
@@ -111,7 +97,5 @@ chart  {
     fill: blue;
 }
 
-/*#calories-row > svg > g rect {*/
-/*    fill: blue;*/
-/*}*/
+
 
