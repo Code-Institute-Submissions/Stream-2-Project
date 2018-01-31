@@ -33,7 +33,7 @@ crossfilter.js
       
 queue.js
       
-A dataset obtained (https://www.kaggle.com/mcdonalds/nutrition-facts/data)
+A dataset obtained from this website: https://www.kaggle.com/mcdonalds/nutrition-facts/data
 
 Components
 =============
@@ -50,7 +50,7 @@ A Python file name threatened_species.py renders a graphs.html template and buil
 MongoDB database
 ================
 
-NoSQL database that converts and presents data in JSON format. The dataset resource was downloaded as a csv file from (https://www.kaggle.com/mcdonalds/nutrition-facts/data) 
+The dataset resource was downloaded as a csv file from https://www.kaggle.com/mcdonalds/nutrition-facts/data 
 
 Queue.js
 ==========
@@ -70,12 +70,13 @@ A JavaScript based visualisation engine that renders interactive charts and grap
 Dc.js
 ======
 
-A Javascript based wrapper library for d3.js - this made plotting the charts easier
+A Javascript based wrapper library for d3.js.This made plotting the charts easier
 
 Deployment / Hosting
 =====================
 
-This Application was deployed and is hosted on Heroku - gunicorn Python package runs the http server for the app, the Procfile gives Heroku the information to run the app and requirements.txt is a file that conains all the Python packages (pip installs) required to run the app. mLab MongoDB was chosen to host the dataset on the server.
+This Application was deployed and is hosted on Heroku. A gunicorn Python package runs the http server for the app, the Procfile gives Heroku the information to run the app and requirements.txt is a file that conains all the Python packages (pip installs) required to run the app. 
+MLab MongoDB was chosen to host the dataset on the server.
 
 Testing
 =======
