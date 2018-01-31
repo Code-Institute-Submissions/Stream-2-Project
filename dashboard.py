@@ -29,6 +29,7 @@ def get_data():
     with MongoClient(MONGODB_URI) as conn:
         collection = conn[DBS_NAME][COLLECTION_NAME]
         results = collection.find(projection=FIELDS)
+
         return json.dumps(list(results))
 
 

@@ -1,12 +1,13 @@
 McDonald's Menu
 ================
-The Web App was built as the second project for the Code Institute's classroom bootcamp.
+This Web App was built as the second project for the Code Institute's classroom bootcamp.
 It is an interactive Data visualisation Web Application using Pythons Flask framework.
+The web app shows the nutritional content of the macdonald's menu.
 
 Live Demo
 ==========
 
-Follow this link to view deployed version of the web app 
+Follow this link to view deployed version of the web app:https://stream2-mcdonalds.herokuapp.com/
 
 Built with
 ===========
@@ -24,15 +25,15 @@ Built with
 
 *JavaScript Libraries:
 
-      d3.js
+d3.js
       
-      dc.js
+dc.js
       
-      crossfilter.js
+crossfilter.js
       
-      queue.js
+queue.js
       
-A dataset obtained "here" (https://www.kaggle.com/mcdonalds/nutrition-facts/data)
+A dataset obtained (https://www.kaggle.com/mcdonalds/nutrition-facts/data)
 
 Components
 =============
@@ -49,7 +50,7 @@ A Python file name threatened_species.py renders a graphs.html template and buil
 MongoDB database
 ================
 
-NoSQL database that converts and presents data in JSON format. The dataset resource was downloaded as a csv file from "here"(https://www.kaggle.com/mcdonalds/nutrition-facts/data) 
+NoSQL database that converts and presents data in JSON format. The dataset resource was downloaded as a csv file from (https://www.kaggle.com/mcdonalds/nutrition-facts/data) 
 
 Queue.js
 ==========
@@ -79,5 +80,5 @@ This Application was deployed and is hosted on Heroku - gunicorn Python package 
 Testing
 =======
 
-This Application was tested across a range of browsers
+This Application was tested across a range of browsers.
 
